@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import {
   MapPin,
   UtensilsCrossed,
@@ -267,6 +268,11 @@ function Ornament() {
 }
 
 function App() {
+  const navigate = useNavigate();
+  const goToRoute = (event, path) => {
+    event.preventDefault();
+    navigate(path);
+  };
   const [scrolled, setScrolled] = useState(false),
     [open, setOpen] = useState(false),
     [lightbox, setLightbox] = useState(null),
@@ -319,12 +325,12 @@ function App() {
         <Logo />
         <nav>
           {nav.map(([n, id]) => (
-            <a href={id === "gallery" ? "/gallery" : `#${id}`} key={id}>
+            <a href={id === "gallery" ? "/gallery" : `#${id}`} key={id} onClick={id === "gallery" ? (event) => goToRoute(event, "/gallery") : undefined}>
               {n}
             </a>
           ))}
-          <a href="/why-choose-us">क्यों हम</a>
-          <a href="/feedback">प्रतिक्रिया</a>
+          <a href="/why-choose-us" onClick={(event) => goToRoute(event, "/why-choose-us")}>क्यों हम</a>
+          <a href="/feedback" onClick={(event) => goToRoute(event, "/feedback")}>प्रतिक्रिया</a>
         </nav>
         <div className="header-actions">
           <button
@@ -364,7 +370,10 @@ function App() {
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.08 * i }}
-                  onClick={() => setOpen(false)}
+                  onClick={(event) => {
+                    setOpen(false);
+                    if (id === "gallery") goToRoute(event, "/gallery");
+                  }}
                   href={id === "gallery" ? "/gallery" : `#${id}`}
                   key={id}
                 >
@@ -372,8 +381,8 @@ function App() {
                   <ChevronRight />
                 </motion.a>
               ))}
-              <a href="/why-choose-us" onClick={() => setOpen(false)}>क्यों हम <ChevronRight /></a>
-              <a href="/feedback" onClick={() => setOpen(false)}>प्रतिक्रिया <ChevronRight /></a>
+              <a href="/why-choose-us" onClick={(event) => { setOpen(false); goToRoute(event, "/why-choose-us"); }}>क्यों हम <ChevronRight /></a>
+              <a href="/feedback" onClick={(event) => { setOpen(false); goToRoute(event, "/feedback"); }}>प्रतिक्रिया <ChevronRight /></a>
             </nav>
             <div className="mobile-actions">
               <button
@@ -743,12 +752,12 @@ function App() {
           <div>
             <h3>Quick Links</h3>
             {nav.map(([n, id]) => (
-              <a key={id} href={id === "gallery" ? "/gallery" : `#${id}`}>
+              <a key={id} href={id === "gallery" ? "/gallery" : `#${id}`} onClick={id === "gallery" ? (event) => goToRoute(event, "/gallery") : undefined}>
                 {n}
               </a>
             ))}
-            <a href="/why-choose-us">क्यों हम</a>
-            <a href="/feedback">प्रतिक्रिया</a>
+            <a href="/why-choose-us" onClick={(event) => goToRoute(event, "/why-choose-us")}>क्यों हम</a>
+            <a href="/feedback" onClick={(event) => goToRoute(event, "/feedback")}>प्रतिक्रिया</a>
           </div>
           <div>
             <h3>हमसे जुड़ें</h3>

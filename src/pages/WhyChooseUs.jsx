@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, Armchair, BadgeIndianRupee, Crown, Heart, MapPin, Sparkles, Users, UtensilsCrossed } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import './WhyChooseUs.css'
 
 const benefits=[
@@ -17,7 +18,7 @@ const reveal={initial:{opacity:0,y:25},whileInView:{opacity:1,y:0},viewport:{onc
 
 export default function WhyChooseUsPage(){
  return <div className="why-page">
-  <header className="why-nav"><a href="/" className="why-brand"><img src="/images/logo/rangilo-rajwado-logo.png" alt="Rangilo Rajwado"/><span>Rangilo Rajwado<small>UNLIMITED RESTAURANT</small></span></a><a href="/" className="back-home"><ArrowLeft/>होम पर वापस</a></header>
+  <header className="why-nav"><Link to="/" className="why-brand"><img src="/images/logo/rangilo-rajwado-logo.png" alt="Rangilo Rajwado"/><span>Rangilo Rajwado<small>UNLIMITED RESTAURANT</small></span></Link><Link to="/" className="back-home"><ArrowLeft/>होम पर वापस</Link></header>
   <main>
    <section className="why-hero"><div className="why-hero-bg"/><div className="why-hero-pattern"/><motion.div initial={{opacity:0,y:35}} animate={{opacity:1,y:0}} transition={{duration:.9}}><span>हमारी पहचान</span><h1>सिर्फ भोजन नहीं,<br/><em>अनलिमिटेड खुशियाँ</em></h1><p>रंगीलो राजवाड़ो में आप सिर्फ खाने नहीं आते। आप आते हैं स्वाद, वैरायटी, आराम और एक अनलिमिटेड दावत की खुशी का अनुभव करने।</p><div><i/><Crown/><i/></div></motion.div><a href="#benefits" className="why-scroll">हमारी खासियत जानें <ArrowRight/></a></section>
 
@@ -27,7 +28,7 @@ export default function WhyChooseUsPage(){
 
    <section className="comparison-section"><div className="why-container"><motion.div {...reveal} className="why-heading light"><span>एक बेहतर चुनाव</span><h2>Regular Dining <em>से कहीं आगे</em></h2><p>देखिए कैसे रंगीलो राजवाड़ो एक साधारण भोजन को संपूर्ण शाही अनुभव में बदल देता है।</p></motion.div><motion.div {...reveal} className="comparison-card"><div className="compare-head"><span>Regular Dining</span><i>VS</i><span><Crown/> Rangilo Rajwado</span></div>{compare.map(([regular,royal],i)=><motion.div className="compare-row" initial={{opacity:0,x:-20}} whileInView={{opacity:1,x:0}} viewport={{once:true}} transition={{delay:i*.12}} key={regular}><span>{regular}</span><div><i/><ArrowRight/><i/></div><strong>{royal}</strong></motion.div>)}</motion.div></div></section>
 
-   <section className="why-cta"><motion.div {...reveal}><Crown/><span>अब आपकी बारी है</span><h2>अनलिमिटेड स्वाद का<br/>शाही अनुभव लीजिए</h2><p>50+ स्वादिष्ट व्यंजन • एक सरल कीमत • अनगिनत खुशियाँ</p><div><a href="/" className="why-primary">बुफे एक्सप्लोर करें <ArrowRight/></a><a href="https://l1nk.dev/jcpl6o2" target="_blank" rel="noreferrer" className="why-outline"><MapPin/> लोकेशन देखें</a></div></motion.div></section>
+   <section className="why-cta"><motion.div {...reveal}><Crown/><span>अब आपकी बारी है</span><h2>अनलिमिटेड स्वाद का<br/>शाही अनुभव लीजिए</h2><p>50+ स्वादिष्ट व्यंजन • एक सरल कीमत • अनगिनत खुशियाँ</p><div><Link to="/" className="why-primary">बुफे एक्सप्लोर करें <ArrowRight/></Link><a href="https://l1nk.dev/jcpl6o2" target="_blank" rel="noreferrer" className="why-outline"><MapPin/> लोकेशन देखें</a></div></motion.div></section>
   </main>
   <footer className="why-footer"><img src="/images/logo/rangilo-rajwado-logo.png" alt=""/><p>Rangilo Rajwado Restaurant</p><span>Sinchayi Colony, Vedhaynath Colony, Sirohi, Rajasthan 307001</span></footer>
  </div>

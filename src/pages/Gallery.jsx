@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, Camera, Crown, Expand, Camera as Instagram, MapPin, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import './Gallery.css'
 
 const categories=['All','Ambience','Food','Buffet','Celebrations','Customer Moments']
@@ -23,7 +24,7 @@ export default function Gallery(){
  const [active,setActive]=useState('All'),[selected,setSelected]=useState(null)
  const filtered=active==='All'?images:images.filter(image=>image.category===active)
  return <div className="gallery-page">
-  <header className="gallery-nav"><a href="/" className="gallery-brand"><img src="/images/logo/rangilo-rajwado-logo.png" alt="Rangilo Rajwado"/><span>Rangilo Rajwado<small>UNLIMITED RESTAURANT</small></span></a><a href="/" className="gallery-back"><ArrowLeft/> होम पर वापस</a></header>
+  <header className="gallery-nav"><Link to="/" className="gallery-brand"><img src="/images/logo/rangilo-rajwado-logo.png" alt="Rangilo Rajwado"/><span>Rangilo Rajwado<small>UNLIMITED RESTAURANT</small></span></Link><Link to="/" className="gallery-back"><ArrowLeft/> होम पर वापस</Link></header>
   <main>
    <section className="gallery-hero"><div className="gallery-hero-bg"/><div className="gallery-hero-pattern"/><motion.div initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{duration:.8}}><Camera/><span>तस्वीरों में हमारी कहानी</span><h1>शाही अनुभव की<br/><em>एक खूबसूरत झलक</em></h1><p>स्वादिष्ट खाना, शानदार माहौल और अपनों के साथ बिताए यादगार पल।</p></motion.div></section>
    <section className="gallery-content"><div className="gallery-container"><motion.div className="filter-bar" initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}}>{categories.map(category=><button className={active===category?'active':''} onClick={()=>setActive(category)} key={category}>{category}</button>)}</motion.div>

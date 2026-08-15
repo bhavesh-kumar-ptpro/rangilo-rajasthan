@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, Camera as Instagram, Crown, Heart, MessageCircleHeart, Play, Quote, Star, Users, Video, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { feedbackData } from '../data/feedbackData'
 import './Feedback.css'
 
@@ -15,7 +16,7 @@ export default function Feedback(){
  const visibleMedia=media.length?media:emptyVideo
  const testimonials=feedbackData.testimonials.length?feedbackData.testimonials:emptyTestimonials
  return <div className="feedback-page">
-  <header className="feedback-nav"><a href="/" className="feedback-brand"><img src="/images/logo/rangilo-rajwado-logo.png" alt="Rangilo Rajwado"/><span>Rangilo Rajwado<small>UNLIMITED RESTAURANT</small></span></a><a href="/" className="feedback-back"><ArrowLeft/> होम पर वापस</a></header>
+  <header className="feedback-nav"><Link to="/" className="feedback-brand"><img src="/images/logo/rangilo-rajwado-logo.png" alt="Rangilo Rajwado"/><span>Rangilo Rajwado<small>UNLIMITED RESTAURANT</small></span></Link><Link to="/" className="feedback-back"><ArrowLeft/> होम पर वापस</Link></header>
   <main>
    <section className="feedback-hero"><div className="feedback-hero-bg"/><div className="feedback-pattern"/><motion.div initial={{opacity:0,y:35}} animate={{opacity:1,y:0}} transition={{duration:.85}}><Heart/><span>आपका भरोसा, हमारी पहचान</span><h1>हमारे मेहमान<br/><em>क्या कहते हैं</em></h1><p>हर मुस्कान, हर खूबसूरत याद और हर प्रतिक्रिया हमें पहले से बेहतर बनने की प्रेरणा देती है।</p><div className="trust-row"><div><Users/><b>परिवारों की पसंद</b></div><i/><div><Crown/><b>शाही मेहमाननवाज़ी</b></div><i/><div><Heart/><b>दिल से सेवा</b></div></div></motion.div></section>
 
