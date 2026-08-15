@@ -1,0 +1,1 @@
+export default function ContactForm({ onSubmit }) { return <form onSubmit={onSubmit}><input name="name" required placeholder="नाम"/><input name="phone" required type="tel" placeholder="मोबाइल नंबर"/><textarea name="message" required placeholder="संदेश"/><button type="submit">संदेश भेजें</button></form> }

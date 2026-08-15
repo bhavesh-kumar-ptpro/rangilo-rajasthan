@@ -1,0 +1,1 @@
+export default function MessageTable({ messages = [] }) { return <table><tbody>{messages.map((message) => <tr key={message.id}><td>{message.name}</td><td>{message.message}</td></tr>)}</tbody></table> }

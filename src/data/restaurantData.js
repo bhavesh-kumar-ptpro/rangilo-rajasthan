@@ -1,0 +1,1 @@
+export const restaurantData={name:'Rangilo Rajwado Restaurant',address:'Sinchayi Colony, Vedhaynath Colony, Sirohi, Rajasthan 307001',mapUrl:'https://l1nk.dev/jcpl6o2',instagram:'https://www.instagram.com/rangilo_rajwado/?hl=en',followers:'4.9K+',services:['Royal Unlimited Buffet','50+ Delicious Food Items','Café','Family Restaurant']}

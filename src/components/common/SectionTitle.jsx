@@ -1,0 +1,1 @@
+export default function SectionTitle({ eyebrow, title, subtitle, light = false }) { return <div className={`section-title ${light ? 'is-light' : ''}`}><span>{eyebrow}</span><h2>{title}</h2>{subtitle && <p>{subtitle}</p>}</div> }

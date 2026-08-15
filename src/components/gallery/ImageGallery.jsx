@@ -1,0 +1,1 @@
+export default function ImageGallery({ images = [] }) { return <div className="gallery-grid">{images.map((image) => <img key={image.src} src={image.src} alt={image.alt || ''} loading="lazy" />)}</div> }
